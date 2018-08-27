@@ -16,6 +16,9 @@ module.exports = {
     app: "./src/index.js",
   },
 
+  // mode: "development",
+  mode: "production",
+
   module: {
     rules: [
       {
@@ -28,7 +31,6 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
-    publicPath: "/"
   },
 
   plugins: [
@@ -36,6 +38,5 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: "output management"
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
 };
