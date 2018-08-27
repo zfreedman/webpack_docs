@@ -15,7 +15,7 @@ module.exports = {
   entry: {
     app: "./src/index.js",
   },
-  
+
   module: {
     rules: [
       {
