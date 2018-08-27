@@ -6,6 +6,10 @@ module.exports = {
 
   devtool: "inline-source-map",
 
+  devServer: {
+    contentBase: "./dist"
+  },
+
   entry: {
     app: "./src/index.js",
     print: "./src/print.js",
@@ -13,7 +17,8 @@ module.exports = {
 
   output: {
     filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
+    path: path.resolve(__dirname, "dist"),
+    publicPath: "/"
   },
 
   plugins: [
