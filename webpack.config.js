@@ -3,9 +3,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
+
+  devtool: "inline-source-map",
+
   entry: {
     app: "./src/index.js",
     print: "./src/print.js",
+  },
+
+  output: {
+    filename: "[name].bundle.js",
+    path: path.resolve(__dirname, "dist")
   },
 
   plugins: [
@@ -14,9 +22,4 @@ module.exports = {
       title: "output management"
     })
   ],
-
-  output: {
-    filename: "[name].bundle.js",
-    path: path.resolve(__dirname, "dist")
-  },
 };
