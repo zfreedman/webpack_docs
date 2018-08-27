@@ -1,18 +1,28 @@
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
 
   devtool: "inline-source-map",
 
   devServer: {
-    contentBase: "./dist"
+    contentBase: "./dist",
+    hot: true,
   },
 
   entry: {
     app: "./src/index.js",
-    print: "./src/print.js",
+  },
+  
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
   },
 
   output: {
@@ -25,6 +35,7 @@ module.exports = {
     new CleanWebpackPlugin(["dist"]),
     new HtmlWebpackPlugin({
       title: "output management"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };
